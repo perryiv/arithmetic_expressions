@@ -88,8 +88,6 @@ const multiplyAndDivide = function ( exp )
 
 const evaluate = function ( exp )
 {
-  // console.log ( "exp:", exp );
-
   // Handle bad input.
   if ( !lodash.isString ( exp ) )
   {
@@ -98,15 +96,12 @@ const evaluate = function ( exp )
 
   // Remove any white space.
   exp = exp.replace ( /\s/g,"" );
-  // console.log ( "exp:", exp );
 
   // Use one symbol for division.
   exp = exp.replace ( /÷/g, "/" );
-  // console.log ( "exp:", exp );
 
   // Minus a negative is plus a positive.
   exp = exp.replace ( /--/g, "+" );
-  // console.log ( "exp:", exp );
 
   // Move these special cases out of the way.
   exp = exp.replace ( /\*-/g, "times_negative" );
@@ -120,12 +115,10 @@ const evaluate = function ( exp )
   exp = exp.replace ( /times_negative/g, "*-" );
   exp = exp.replace ( /divided_by_negative/g, "/-" );
   exp = exp.replace ( /plus_negative/g, "+-" );
-  // console.log ( "exp:", exp );
 
   // Since we've replaced all the subtractions with addition of negatives,
   // we just have to split on the addition symbol.
   let parts = exp.split ( "+" );
-  // console.log ( "parts:", parts );
 
   // Initialize the answer.
   let answer = 0;
@@ -137,13 +130,11 @@ const evaluate = function ( exp )
   {
     parts[i] = multiplyAndDivide ( parts[i] );
   }
-  // console.log ( "parts:", parts );
 
   for ( let i = 0; i < parts.length; ++i )
   {
     answer += parseFloat ( parts[i] );
   }
-  // console.log ( "answer:", answer );
 
   return answer;
 };
