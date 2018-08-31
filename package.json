@@ -1,0 +1,19 @@
+{
+  "name": "arithmetic_expressions",
+  "version": "0.1.0",
+  "description": "Home-grown evaluation of arithmetic expressions as a simple exercise",
+  "scripts": {
+    "lint": "eslint . --ext .js",
+    "test": "mocha --bail ./source/test.js",
+    "watch": "watch \"npm run lint && npm run test\" ./source/"
+  },
+  "dependencies": {
+    "lodash": "^4.17.10"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "eslint": "^5.4.0",
+    "mocha": "^5.2.0",
+    "watch": "^1.0.2"
+  }
+}
